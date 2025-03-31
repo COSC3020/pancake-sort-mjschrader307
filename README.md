@@ -39,18 +39,16 @@ In `pancakeSort()`, there is an outer for-loop that handles moving the max eleme
 
 There are three cases for flipping based on where the max is in the unsorted portion of the array:
 - Best case: Max element is already at end of unsorted portion
-    - Flip everything in unsorted portion ($\Theta(n)$)
+    - Do nothing ($\Theta(1)$)
 - Worst case: Neither beginning or end of unsorted portion
     - Flip up to the max element in unsorted portion, bringing it to top ($\Theta(n)$)
     - Flip everything in the unsorted portion, bringing max of unsorted portion to top of sorted portion ($\Theta(n)$)
 - Otherwise: Beginning of unsorted portion
     - Flip unsorted portion to bring its max to top of sorted portion ($\Theta(n)$)
 
-There is a constant difference in the number of flips per outer iteration in this function, regardless of best case, worst case, or otherwise. Therefore, moving the max element of the unsorted portion to its correct position in the array is $\Theta(n)$
+In every case but the best case, the procedure for identifying the max value of the unsorted portion of the array and moving it for each outer iteration is some constant times a linear amount of work ($\Theta(n)$ to find the max and $\Theta(n)$ to flip a portion of the array). In the best case, there is no flipping necessary for each outer iteration, but identifying the max is still $\Theta(n)$. This inner procedure is done once per element in the array, so the overall complexity for this algorithm, regardless of the scenario, is $\Theta(n^2)$.
 
-Since this loop iteration runs *n* times, the overall function has a runtime complexity of $\Theta(n^2)$ for all cases.
-
-In short, the function has a complexity of $\Theta(n^2)$ in terms of number of elements (pancakes) and $\Theta(n)$ in terms of number of flips.
+In terms of flips, this algorithm has a linear runtime complexity: $\Theta(n)$. This is because there are either 0, 1, or 2 flipping operations per element in the array.
 
 ---
 

@@ -48,6 +48,8 @@ There are three cases for flipping based on where the max is in the unsorted por
 
 In every case but the best case, the procedure for identifying the max value of the unsorted portion of the array and moving it for each outer iteration is some constant times a linear amount of work ($\Theta(n)$ to find the max and $\Theta(n)$ to flip a portion of the array). In the best case, there is no flipping necessary for each outer iteration, but identifying the max is still $\Theta(n)$. This inner procedure is done once per element in the array, so the overall complexity for this algorithm, regardless of the scenario, is $\Theta(n^2)$.
 
+The runtime in terms of the number of comparisons is $\Theta(n^2)$, because there is either a constant (0) or linear amount of flips per element in the array, but there is also linear work being done to identify the maximum element in the unsorted portion of the array, regardless of the number of flips.
+
 In terms of flips, this algorithm has a linear runtime complexity: $\Theta(n)$. This is because there are either 0, 1, or 2 flipping operations per element in the array.
 
 ---
